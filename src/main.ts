@@ -1,7 +1,22 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppModule } from './app/app.module';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { AppComponent } from './app/app.component';
+import { provideHttpClient } from '@angular/common/http';
+import { importProvidersFrom } from '@angular/core';
+import { provideRouter } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { CodeGateComponent } from './app/components/code-gate/code-gate.component';
+import { TaskListComponent } from './app/components/task-list/task-list.component';
 
-platformBrowserDynamic().bootstrapModule(AppModule, {
-  ngZoneEventCoalescing: true,
-})
-  .catch(err => console.error(err));
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideHttpClient(),
+    provideAnimations(),
+    importProvidersFrom(FormsModule),
+    provideRouter([
+      { path: '', component: CodeGateComponent },
+      { path: 'tasks', component: TaskListComponent },
+      { path: '**', redirectTo: '' }
+    ])
+  ]
+}).catch(err => console.error(err));
