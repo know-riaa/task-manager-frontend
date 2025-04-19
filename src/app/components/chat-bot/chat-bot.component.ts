@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
