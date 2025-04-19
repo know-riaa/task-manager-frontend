@@ -21,7 +21,7 @@ export class CodeGateComponent {
     if (this.accessCode === this.secret) {
       localStorage.setItem('access_granted', 'true');
       setTimeout(() => {
-        this.router.navigate(['/tasks']);
+        this.router.navigate(['/chat']);
       }, 100);
     } else {
       this.errorMessage = 'Incorrect Code. Try Again.';

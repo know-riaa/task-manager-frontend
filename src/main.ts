@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { CodeGateComponent } from './app/components/code-gate/code-gate.component';
 import { TaskListComponent } from './app/components/task-list/task-list.component';
+import { ChatBotComponent } from './app/components/chat-bot/chat-bot.component';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -16,6 +17,7 @@ bootstrapApplication(AppComponent, {
     provideRouter([
       { path: '', component: CodeGateComponent },
       { path: 'tasks', component: TaskListComponent },
+      { path: 'chat', component: ChatBotComponent },
       { path: '**', redirectTo: '' }
     ])
   ]
