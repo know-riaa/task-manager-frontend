@@ -1,10 +1,8 @@
-<p>code-gate works!</p>
-
-<p>THIS IS THE CODE GATE</p>
-
-<div class="gate-container">
-    <h2>Enter Access Code</h2>
-    <input [(ngModel)]="accessCode" placeholder = "Enter Code"/>
-    <button (click)="validateCode()">Enter</button>
-    <p *ngIf="errorMessage" style="color:red">{{errorMessage}}</p>
-</div>
+<div class="fullscreen-center">
+    <div class="gate-container">
+      <h2>Enter Access Code</h2>
+      <input type="password" [(ngModel)]="accessCode" placeholder="Enter Code" />
+      <button (click)="validateCode()">Enter</button>
+      <p *ngIf="errorMessage" style="color:red">{{ errorMessage }}</p>
+    </div>
+  </div>

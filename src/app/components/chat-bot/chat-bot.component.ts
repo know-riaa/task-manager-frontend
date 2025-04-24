@@ -13,25 +13,32 @@ import { FormsModule } from '@angular/forms';
 })
 export class ChatBotComponent {
   userInput: string = '';
-  messages: {from: 'user' | 'bot', text: string } [] = [];
+  messages: { from: 'user' | 'bot', text: string }[] = [];
+  books: any[] = [];
 
-  constructor(private http: HttpClient){}
-  
-  sendMessage(){
-    if(!this.userInput.trim()) return;
+  constructor(private http: HttpClient) {}
+
+  sendMessage() {
+    if (!this.userInput.trim()) return;
 
     const message = this.userInput;
-    this.messages.push({from: 'user', text: message });
+    this.messages.push({ from: 'user', text: message });
 
-    this.http.post<any>(`${environment.apiBaseUrl}/api/chat`, {message: message}).subscribe({
-      next: (response)=> {
-        this.messages.push({from: 'bot', text: response.reply});
+    this.http.post<any>("http://localhost:8080/api/chat", { message }).subscribe({
+      next: (response) => {
+        if (Array.isArray(response.reply)) {
+          this.books = response.reply;
+          this.messages.push({ from: 'bot', text: 'Here are the books I found:' });
+        } else {
+          this.books = [];
+          this.messages.push({ from: 'bot', text: response.reply || 'Hmm... I didn’t understand that.' });
+        }
       },
       error: () => {
-        this.messages.push({from: 'bot', text:"OOps! Server error"});
+        this.messages.push({ from: 'bot', text: "Oops! Server error" });
       }
     });
 
-    this.userInput= '';
+    this.userInput = '';
   }
 }
