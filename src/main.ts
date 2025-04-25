@@ -18,6 +18,15 @@ bootstrapApplication(AppComponent, {
       { path: '', component: CodeGateComponent },
       { path: 'tasks', component: TaskListComponent },
       { path: 'chat', component: ChatBotComponent },
+      {
+        path: 'admin-auth',
+        loadComponent: () =>
+          import('./app/components/admin-auth/admin-auth.component').then(m => m.AdminAuthComponent)
+      },
+      {
+        path: 'delete',
+        component: ChatBotComponent
+      },
       { path: '**', redirectTo: '' }
     ])
   ]

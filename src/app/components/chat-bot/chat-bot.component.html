@@ -1,7 +1,9 @@
 <div class="center-wrapper">
   <div class="chat-container">
     <h2>E-LIBRIS</h2>
-  
+    <div *ngIf="successMessage" class="success-toast">
+      {{ successMessage }}
+    </div>
     <div class="chat-window">
       <div *ngFor="let msg of messages" [ngClass]="msg.from">
         <strong *ngIf="msg.from === 'user'">You:</strong>
@@ -13,6 +15,15 @@
     <div class="chat-input">
       <input [(ngModel)]="userInput" (keyup.enter)="sendMessage()" placeholder="Ask something..." />
       <button (click)="sendMessage()">Send</button>
+    </div>
+
+    <div *ngIf="showAddBookForm" class="upload-form">
+      <h3>Add a New Book</h3>
+      <input type="text" placeholder="Book Title" [(ngModel)]="bookTitle" />
+      <input type="text" placeholder="Author" [(ngModel)]="bookAuthor" />
+      <input type="text" placeholder="ISBN" [(ngModel)]="bookIsbn" />
+      <input type="file" (change)="onFileSelected($event)" />
+      <button (click)="uploadBook()">Upload Book</button>
     </div>
   
     <div class="book-table" *ngIf="books.length > 0">
@@ -33,12 +44,19 @@
             <td>{{ book.isbn }}</td>
             <td>
               <a [href]="book.downloadUrl" target="_blank" download>
-                <button>Download PDF</button>
+                <button (click)="downloadBook(book.downloadUrl, book.title + '.pdf')">Download PDF</button>
               </a>
             </td>
           </tr>
         </tbody>
       </table>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="nav-buttons">
+      <button (click)="goHome()">BACK</button>
     </div>
   </div>
 </div>

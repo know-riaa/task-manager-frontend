@@ -1,0 +1,17 @@
+<div class="auth-container">
+    <h2>Admin Access Required</h2>
+  
+    <input
+      type="password"
+      [(ngModel)]="pin"
+      placeholder="Enter Admin PIN"
+      class="pin-input"
+    />
+  
+    <div class="button-group">
+      <button (click)="verifyPin()">Submit</button>
+      <button (click)="goBack()">Go Back</button>
+    </div>
+  
+    <p *ngIf="error" class="error-text">Incorrect PIN. Please try again.</p>
+  </div>

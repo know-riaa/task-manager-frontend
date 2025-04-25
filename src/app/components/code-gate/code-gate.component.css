@@ -1,4 +1,4 @@
-/* Make the whole screen a flex container to center content */
+
 body, html {
     height: 100%;
     margin: 0;
@@ -13,7 +13,7 @@ body, html {
     height: 100vh;
   }
   
-  /* Styled access gate box */
+ 
   .gate-container {
     background-color: #ffffff;
     padding: 40px;
@@ -68,9 +68,9 @@ body, html {
   input {
     type: password;
     text-align: center;
-    font-size: 24px;         /* Bigger size */
-    font-weight: bold;       /* Make it bold */
-    letter-spacing: 5px;     /* Add spacing between dots */
+    font-size: 24px;         
+    font-weight: bold;       
+    letter-spacing: 5px;     
     padding: 12px;
     border: 1px solid #c3bce3;
     border-radius: 8px;

@@ -1,0 +1,21 @@
+<div class="upload-container">
+    <h2>Upload a Book</h2>
+  
+    <form (submit)="onSubmit()" enctype="multipart/form-data">
+      <label>Title:</label>
+      <input type="text" [(ngModel)]="title" name="title" required />
+  
+      <label>Author:</label>
+      <input type="text" [(ngModel)]="author" name="author" required />
+  
+      <label>ISBN:</label>
+      <input type="text" [(ngModel)]="isbn" name="isbn" required />
+  
+      <label>PDF File:</label>
+      <input type="file" (change)="onFileSelected($event)" required />
+  
+      <button type="submit">Upload</button>
+    </form>
+  
+    <p *ngIf="message">{{ message }}</p>
+  </div>

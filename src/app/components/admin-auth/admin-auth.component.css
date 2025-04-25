@@ -1,0 +1,57 @@
+.auth-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    padding: 2.5rem;
+    background-color: #f9f0ff;
+    border: 1px solid #d3b7f0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(174, 115, 223, 0.15);
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  .auth-container h2 {
+    color: #6a1b9a;
+    margin-bottom: 1.5rem;
+  }
+  
+  .pin-input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #cda8ef;
+    background-color: #fff7ff;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  button {
+    flex: 1;
+    padding: 10px;
+    background-color: #b388eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  button:hover {
+    background-color: #a566d4;
+  }
+  
+  .error-text {
+    color: red;
+    margin-top: 1rem;
+  }
+
+  
